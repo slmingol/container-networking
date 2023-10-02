@@ -40,11 +40,20 @@ cd /vagrant
 -or-
 
 ```
-$ multipass exec meticulous-hairtail -- bash
+$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-1"
+Launched: multi-node-1
+
+$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-2"
+Launched: multi-node-2
+```
+
+Then to connect to them, for e.g.:
+```
+$ multipass exec multi-node-1 -- bash
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@meticulous-hairtail:~$ ./setup.sh
+ubuntu@multi-node-1:~$ ./setup.sh
 ```
 
 To test the connectivity between the containers within and node, and across nodes, run the following:
