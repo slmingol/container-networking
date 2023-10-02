@@ -20,6 +20,30 @@ brew cask install vagrant
 vagrant plugin install vagrant-vbguest
 ```
 
+-or-
+
+```
+$ brew install --cask multipass
+
+$ multipass info meticulous-hairtail
+Name:           meticulous-hairtail
+State:          Running
+IPv4:           192.168.64.2
+Release:        Ubuntu 22.04.3 LTS
+Image hash:     0b565888914c (Ubuntu 22.04 LTS)
+CPU(s):         1
+Load:           0.20 0.09 0.03
+Disk usage:     1.4GiB out of 4.8GiB
+Memory usage:   141.5MiB out of 962.4MiB
+Mounts:         --
+
+$ multipass exec meticulous-hairtail -- bash
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@meticulous-hairtail:~$
+```
+
 ### Linux
 
 ```
