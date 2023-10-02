@@ -13,21 +13,38 @@ vagrant up
 ```
 -or-
 
+Create the 2 VMs (multi-node-1 and multi-node-2):
 ```
-$ multipass launch
-Launched: meticulous-hairtail
+$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-1"
+Launched: multi-node-1
 
-$ multipass info meticulous-hairtail
- Name:           meticulous-hairtail
- State:          Running
- IPv4:           192.168.64.2
- Release:        Ubuntu 22.04.3 LTS
- Image hash:     0b565888914c (Ubuntu 22.04 LTS)
- CPU(s):         1
- Load:           0.20 0.09 0.03
- Disk usage:     1.4GiB out of 4.8GiB
- Memory usage:   141.5MiB out of 962.4MiB
- Mounts:         --
+$ multipass info multi-node-1
+Name:           multi-node-1
+State:          Running
+IPv4:           192.168.64.2
+Release:        Ubuntu 22.04.3 LTS
+Image hash:     0b565888914c (Ubuntu 22.04 LTS)
+CPU(s):         2
+Load:           0.02 0.13 0.08
+Disk usage:     1.4GiB out of 4.8GiB
+Memory usage:   146.7MiB out of 962.3MiB
+Mounts:         --
+
+
+$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-1"
+Launched: multi-node-2
+
+$ multipass info multi-node-2
+Name:           multi-node-2
+State:          Running
+IPv4:           192.168.64.3
+Release:        Ubuntu 22.04.3 LTS
+Image hash:     0b565888914c (Ubuntu 22.04 LTS)
+CPU(s):         2
+Load:           0.08 0.10 0.06
+Disk usage:     1.4GiB out of 4.8GiB
+Memory usage:   144.8MiB out of 962.3MiB
+Mounts:         --
 ```
 
 SSH to each node (VM) in turn, and run the setup script to create the network namespaces connected via a bridge: 
@@ -38,14 +55,6 @@ cd /vagrant
 ./setup.sh
 ```
 -or-
-
-```
-$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-1"
-Launched: multi-node-1
-
-$ multipass launch --cpus 2 --disk 5G --memory 1G --name "multi-node-2"
-Launched: multi-node-2
-```
 
 Then to connect to them, for e.g.:
 ```
