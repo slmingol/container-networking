@@ -13,7 +13,7 @@ if [ $? -eq 0 ]; then
 fi
 
 echo "Deleting the bridge"
-sudo ip link delete br0
+sudo ip link delete $BRIF
 
 echo "Deleting the route on the node to reach the network namespaces on the other node"
-sudo ip route del $TO_BRIDGE_SUBNET via $TO_NODE_IP dev enp0s8
+sudo ip route del $TO_BRIDGE_SUBNET via $TO_NODE_IP dev $BRDEV

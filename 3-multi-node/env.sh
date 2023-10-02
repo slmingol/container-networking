@@ -11,6 +11,8 @@ if [ $(hostname) == "3-multi-node-1" ] || [ $(hostname) == "multi-node-1" ] ; th
     TO_BRIDGE_IP="172.16.1.1"
     TO_IP1="172.16.1.2"
     TO_IP2="172.16.1.3"
+    BRIF=br0
+    BRDEV=enp0s1
 else
     NODE_IP="10.0.0.20"
     BRIDGE_SUBNET="172.16.1.0/24"
@@ -22,4 +24,6 @@ else
     TO_BRIDGE_IP="172.16.0.1"
     TO_IP1="172.16.0.2"
     TO_IP2="172.16.0.3"
+    BRIF=br0
+    BRDEV=enp0s1
 fi
