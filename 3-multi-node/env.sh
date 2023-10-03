@@ -1,7 +1,8 @@
 CON1="con1"
 CON2="con2"
 if [ $(hostname) == "3-multi-node-1" ] || [ $(hostname) == "multi-node-1" ] ; then
-    NODE_IP="10.0.0.10"
+    #NODE_IP="10.0.0.10"
+    NODE_IP="192.168.64.2"
     BRIDGE_SUBNET="172.16.0.0/24"
     BRIDGE_IP="172.16.0.1"
     IP1="172.16.0.2"
@@ -15,7 +16,8 @@ if [ $(hostname) == "3-multi-node-1" ] || [ $(hostname) == "multi-node-1" ] ; th
     BRIF=br0
     BRDEV=enp0s1
 else
-    NODE_IP="10.0.0.20"
+    #NODE_IP="10.0.0.20"
+    NODE_IP="192.168.64.3"
     BRIDGE_SUBNET="172.16.1.0/24"
     BRIDGE_IP="172.16.1.1"
     IP1="172.16.1.2"
